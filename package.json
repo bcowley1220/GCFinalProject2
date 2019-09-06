@@ -1,7 +1,7 @@
 {
   "scripts": {
     "ng": "ng",
-    "start": "ls ./",
+    "start": "node ./src/server/server.js",
     "serve": "ng serve",
     "build": "ng build",
     "test": "ng test",
