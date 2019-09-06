@@ -7,6 +7,10 @@ let app = express();
 //Added in router
 let router = require("./router");
 
+app.use(express.static(__dirname + "/dist"));
+app.use("/", router);
+app.use(cors());
+app.use(express.json());
 // If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -99,9 +103,7 @@ function listLabels(auth) {
     }
   );
 }
-app.use(express.static(__dirname + "/dist"));
-app.use(cors());
-app.use(express.json());
+
 let port = process.env.PORT || 8080;
-app.use("/", router);
+
 app.listen(port, () => console.log(`Server is running on PORT: ${port}!`));
