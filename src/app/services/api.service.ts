@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getEmailData(): Observable<any> {
-    return this.http.get(`localhost:8000/tests`);
-  }
+  // getEmailData(): Observable<any> {
+  //   return this.http.get(`localhost:8080/tests`);
+  // }
 }

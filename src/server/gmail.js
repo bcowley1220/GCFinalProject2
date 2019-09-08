@@ -1,13 +1,3 @@
-const fs = require("fs");
-const readline = require("readline");
-const { google } = require("googleapis");
-let express = require("express");
-let cors = require("cors");
-let app = express();
-//Added in router
-let router = require("./router");
-
-// If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
@@ -15,11 +5,11 @@ const SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"];
 const TOKEN_PATH = "token.json";
 
 // Load client secrets from a local file.
-fs.readFile("credentials.json", (err, content) => {
-  if (err) return console.log("Error loading client secret file:", err);
-  // Authorize a client with credentials, then call the Gmail API.
-  authorize(JSON.parse(content), listLabels);
-});
+// fs.readFile(__dirname + "/credentials.json", (err, content) => {
+//   if (err) return console.log("Error loading client secret file:", err);
+//   // Authorize a client with credentials, then call the Gmail API.
+//   authorize(JSON.parse(content), listLabels);
+// });
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -79,29 +69,23 @@ function getNewToken(oAuth2Client, callback) {
  *
 //  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
 //  */
-function listLabels(auth) {
-  const gmail = google.gmail({ version: "v1", auth });
-  gmail.users.labels.list(
-    {
-      userId: "me"
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const labels = res.data.labels;
-      if (labels.length) {
-        console.log("Labels:");
-        labels.forEach(label => {
-          console.log(`- ${label.name}`);
-        });
-      } else {
-        console.log("No labels found.");
-      }
-    }
-  );
-}
-app.use(express.static(__dirname + "/dist"));
-app.use(cors());
-app.use(express.json());
-let port = process.env.PORT || 8080;
-app.use("/", router);
-app.listen(port, () => console.log(`Server is running on PORT: ${port}!`));
+// function listLabels(auth) {
+//   const gmail = google.gmail({ version: "v1", auth });
+//   gmail.users.labels.list(
+//     {
+//       userId: "me"
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const labels = res.data.labels;
+//       if (labels.length) {
+//         console.log("Labels:");
+//         labels.forEach(label => {
+//           console.log(`- ${label.name}`);
+//         });
+//       } else {
+//         console.log("No labels found.");
+//       }
+//     }
+//   );
+// }
