@@ -9,12 +9,12 @@ export class MainViewComponent implements OnInit {
   emailData: any;
   constructor(private apiService: ApiService) {}
 
-  getEmail(): void {
-    this.apiService.getEmailData().subscribe(response => {
-      this.emailData = response.data;
-      console.log(this.emailData);
-    });
-  }
+  // getEmail(): void {
+  //   this.apiService.getEmailData().subscribe(response => {
+  //     this.emailData = response.data;
+  //     console.log(this.emailData);
+  //   });
+  // }
   ngOnInit() {}
 }
 
