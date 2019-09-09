@@ -13,28 +13,5 @@ export class MainViewComponent implements OnInit {
   gmail;
   constructor(private apiService: ApiService) {}
 
-  checkAuth() {
-    this.apiService.checkAuth();
-  }
-  handleAuthClick() {
-    this.apiService.handleAuthClick();
-  }
-  handleAuthResult(authResult) {
-    this.apiService.handleAuthResult(authResult);
-  }
-  loadGmailApi() {
-    this.apiService.loadGmailApi();
-  }
-  displayInbox() {
-    this.apiService.displayInbox();
-  }
-  handleClientLoad() {
-    this.apiService.handleClientLoad();
-  }
-
-  ngOnInit() {
-    //   gapi.client.setApiKey(this.apiKey);
-    //   window.setTimeout(this.checkAuth, 1);
-    // }
-  }
+  ngOnInit() {}
 }
