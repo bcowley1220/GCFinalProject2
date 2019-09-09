@@ -7,33 +7,11 @@ import { ApiService } from "../services/api.service";
 })
 export class MainViewComponent implements OnInit {
   emailData: any;
+  clientID;
+  apiKey;
+  scopes;
+  gmail;
   constructor(private apiService: ApiService) {}
 
-  getEmail(): void {
-    this.apiService.getEmailData().subscribe(response => {
-      this.emailData = response.data;
-      console.log(this.emailData);
-    });
-  }
   ngOnInit() {}
 }
-
-// import { Component, OnInit } from "@angular/core";
-// import { ApiService } from "../services/api.service";
-// @Component({
-//   selector: "app-main",
-//   templateUrl: "./main.component.html",
-//   styleUrls: ["./main.component.css"]
-// })
-// export class MainComponent implements OnInit {
-//   emailData: any;
-//   constructor(private apiService: ApiService) {}
-
-//   getEmail(): void {
-//     this.apiService.getEmailData().subscribe(response => {
-//       this.emailData = response.data;
-//       console.log(this.emailData);
-//     });
-//   }
-//   ngOnInit() {}
-// }
